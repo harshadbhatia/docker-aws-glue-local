@@ -34,12 +34,6 @@ RUN sed -i '/mvn -f/a rm /glue/aws-glue-libs/jarsv1/javax.servlet-3.*' /app/aws-
 RUN yum clean all
 RUN rm -rf /var/cache/yum
 
-RUN pip install jupyter-spark
-RUN jupyter serverextension enable --py jupyter_spark
-RUN jupyter nbextension install --py jupyter_spark
-RUN jupyter nbextension enable --py jupyter_spark
-RUN jupyter nbextension enable --py widgetsnbextension
-
-EXPOSE 4040
+ENV PYTHONPATH="/app/aws-glue-libs/PyGlue.zip:$PYTHONPATH"
 
 CMD ["bash"]
