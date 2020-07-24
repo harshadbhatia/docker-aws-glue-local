@@ -9,7 +9,7 @@ RUN yum install -y python3 java-1.8.0-openjdk java-1.8.0-openjdk-devel tar git w
 
 RUN ln -s /usr/bin/python3 /usr/bin/python
 RUN ln -s /usr/bin/pip3 /usr/bin/pip
-RUN pip install pandas boto3 pynt
+RUN pip install pandas boto3 pynt pyspark
 
 WORKDIR ./app
 RUN git clone -b glue-1.0 $GLUE
